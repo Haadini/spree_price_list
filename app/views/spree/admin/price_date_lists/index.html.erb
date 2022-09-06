@@ -9,8 +9,11 @@
     <thead>
       <tr data-hook="brand_price_date_lists_header">
         <th>
+        </th>
+        <th>
           <%= sort_link @search, :start_date, I18n.t(:start_date, scope: 'activerecord.attributes.spree/price_date_list') %>
         </th>
+        
         <th>
           <%= sort_link @search, :end_date, I18n.t(:end_date, scope: 'activerecord.attributes.spree/price_date_list') %>
         </th>
@@ -21,7 +24,11 @@
       <% @price_date_lists.each do |price_date_lists| %>
         <tr data-hook="price_list_items_row">
           <td>
-            <%= link_to price_date_lists.start_date, admin_price_list_item_path( price_date_lists.id) %>
+            <a href="/admin/brands/<%= price_date_lists.spree_barnd_id %>/price_date_lists/<%=price_date_lists.id%>/price_list_items">
+            <%="see"%>
+          </td>
+          <td>
+            <%= price_date_lists.start_date %>
           </td>
           <td>
             <%= price_date_lists.end_date %> 
