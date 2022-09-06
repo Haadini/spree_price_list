@@ -35,7 +35,7 @@
           </td>
           <td class="actions actions-2 text-right">
             <!--<a href="/admin/brands/<%= price_date_lists.spree_brand_id %>/price_date_lists/<%=price_date_lists.id%>/price_list_items/edit">-->
-            <%= link_to edit_admin_brand_price_date_list_url, no_text: true, class: 'edit' if can?(:edit, Spree::PriceDateList)%>
+            <%= link_to price_date_lists, edit_admin_brand_price_date_list_url, no_text: true, class: 'edit' if can?(:edit, Spree::PriceDateList)%>
             <!--</a>-->
           </td>
         </tr>
