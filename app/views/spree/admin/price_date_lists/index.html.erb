@@ -2,7 +2,7 @@
   <%= Spree.t(plural_resource_name(Spree::PriceDateList)) %>
 <% end %>
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:new_brand), new_brand_price_date_list_url, { class: "btn-success", icon: 'add', id: 'admin_new_brand' } %>
+  <%= button_link_to Spree.t(:new_brand), new_price_date_list_url, { class: "btn-success", icon: 'add', id: 'admin_new_brand' } %>
 <% end if can?(:create, Spree::PriceDateList) %>
 <% if @price_date_lists.any? %>
   <table class="table sortable" data-hook="brand_price_date_lists_table" data-sortable-link="<%= update_positions_admin_brand_price_date_lists_url %>">
