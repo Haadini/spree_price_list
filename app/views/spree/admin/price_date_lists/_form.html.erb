@@ -1,0 +1,11 @@
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @prcie_date_lists } %>
+<div class="form-group">
+  <%= f.field_container :start_date do %>
+    <%= f.label :start_date %>
+    <%= f.text_area :start_date, class: 'form-control' %>
+  <% end %>
+  <%= f.field_container :end_date do %>
+    <%= f.label :end_date %>
+    <%= f.text_area :end_date, class: 'form-control' %>
+  <% end %>
+</div>
