@@ -1,0 +1,23 @@
+en:
+  activerecord:
+    models:
+      spree/price_date_list:
+        one: PriceDateList
+        other: PriceDateLists
+    attributes:
+      spree/price_date_list:
+        end_date: end_date
+        start_date: start_date
+        created_at: created_at
+  spree:
+    back_to_price_date_lists_list: Back To PriceDateLists List
+    blocked: Blocked
+    edit_price_date_list: Edit PriceDateList
+    new_price_date_list: New PriceDateList
+    only_alphanumeric_chars: should contain only letters and digits
+
+    price_date_list: PriceDateList
+    price_date_list_end_date: PriceDateList EndDate
+    price_date_list_start_date: PriceDateList StartDate
+    admin:
+      commission: Commission

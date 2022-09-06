@@ -1,0 +1,47 @@
+<% content_for :page_title do %>
+  <%= Spree.t(plural_resource_name(Spree::Brand)) %>
+<% end %>
+<% content_for :table_filter do %>
+  <div data-hook="admin_brands_index_search">
+    <%= search_form_for [:admin, @search] do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= label_tag :q_brand_cont, Spree.t(:brand) %>
+            <%= f.text_field :brand_cont, tabindex: 1, class: "form-control js-quick-search-target" %>
+          </div>
+        </div>
+      </div>
+      <div data-hook="admin_brand_index_search_buttons" class="form-actions">
+        <%= button Spree.t(:filter_results), 'search' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @brands.any? %>
+  <table class="table sortable" data-hook="brands_table" data-sortable-link="<%= update_positions_admin_brands_url %>">
+    <thead>
+      <tr data-hook="brands_header">
+        <th>
+          <%= sort_link @search, :brand, I18n.t(:brand, scope: 'activerecord.attributes.spree/brand') %>
+        </th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @brands.each do |brands| %>
+        <tr data-hook="brands_row">
+          <td>
+            <%= link_to brands.brand, admin_price_date_list_path( brands.id)  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Brand)) %>
+  </div>
+<% end %>
+<%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection } %>

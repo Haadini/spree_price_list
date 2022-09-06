@@ -1,0 +1,23 @@
+en:
+  activerecord:
+    models:
+      spree/price_list_item:
+        one: PriceListItem
+        other: PriceListItems
+    attributes:
+      spree/price_list_item:
+        product: product
+        price: price
+        created_at: created at
+  spree:
+    back_to_price_list_items_list: Back To PriceListItems List
+    blocked: Blocked
+    edit_price_list_item: Edit PriceListItem
+    new_price_list_item: New PriceListItem
+    only_alphanumeric_chars: should contain only letters and digits
+
+    price_list_item: PriceListItem
+    price_list_item_product: PriceListItem Product
+    price_list_item_price: PriceListItem Price
+    admin:
+      commission: Commission

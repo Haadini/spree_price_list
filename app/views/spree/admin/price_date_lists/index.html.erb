@@ -1,0 +1,41 @@
+<% content_for :page_title do %>
+  <%= Spree.t(plural_resource_name(Spree::PriceDateList)) %>
+<% end %>
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_brand), new_brand_price_date_list_url, { class: "btn-success", icon: 'add', id: 'admin_new_brand' } %>
+<% end if can?(:create, Spree::PriceDateList) %>
+<% if @price_date_lists.any? %>
+  <table class="table sortable" data-hook="brand_price_date_lists_table" data-sortable-link="<%= update_positions_admin_brand_price_date_lists_url %>">
+    <thead>
+      <tr data-hook="brand_price_date_lists_header">
+        <th>
+          <%= sort_link @search, :start_date, I18n.t(:start_date, scope: 'activerecord.attributes.spree/price_date_list') %>
+        </th>
+        <th>
+          <%= sort_link @search, :end_date, I18n.t(:end_date, scope: 'activerecord.attributes.spree/price_date_list') %>
+        </th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @price_date_lists.each do |price_date_lists| %>
+        <tr data-hook="price_list_items_row">
+          <td>
+            <%= link_to price_date_lists.start_date, admin_price_list_item_path( price_date_lists.id) %>
+          </td>
+          <td>
+            <%= price_date_lists.end_date %> 
+          </td>
+          <td class="actions actions-2 text-right">
+           <%= link_to_edit price_date_lists, no_text: true, class: 'edit' if can?(:edit, Spree::PriceDateList) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::PriceDateList)) %>
+  </div>
+<% end %>
+<%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection } %>

@@ -1,0 +1,53 @@
+<% content_for :page_title do %>
+  <%= Spree.t(plural_resource_name(Spree::PriceListItem)) %>
+<% end %>
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_brand), new_brand_price_date_list_price_list_item_url, { class: "btn-success", icon: 'add', id: 'admin_new_brand' } %>
+<% content_for :table_filter do %>
+  <div data-hook="admin_brand_price_date_list_price_list_items_index_search">
+    <%= search_form_for [:admin, :brand, :price_date_list, @search] do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= label_tag :q_product_cont, :product%>
+            <%= f.text_field :product_cont, tabindex: 1, class: "form-control js-quick-search-target" %>
+          </div>
+        </div>
+      </div>
+      <div data-hook="admin_brand_price_date_list_price_list_item_index_search_buttons" class="form-actions">
+        <%= button Spree.t(:filter_results), 'search' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<% if @price_list_items.any? %>
+  <table class="table sortable" data-hook="brand_price_date_list_price_list_items_table" data-sortable-link="<%= update_positions_admin_brand_price_date_list_price_list_items_url %>">
+    <thead>
+      <tr data-hook="brand_price_date_list_price_list_items_header">
+        <th>
+          <%= sort_link @search, :product, I18n.t(:product, scope: 'activerecord.attributes.spree/price_list_item') %>
+        </th>
+        <th>
+          <%= sort_link @search, :price, I18n.t(:price, scope: 'activerecord.attributes.spree/price_list_item') %>
+        </th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @price_list_items.each do |price_list_items| %>
+        <tr data-hook="price_list_items_row">
+          <td>
+            <%= price_list_items.product %>
+          </td>
+          <td>
+            <%= price_list_items.price %> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::PriceListItem)) %>
+  </div>
+<% end %>
+<%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection } %>

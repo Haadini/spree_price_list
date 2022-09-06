@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    models:
+      spree/brand:
+        one: Brand
+        other: Brands
+    attributes:
+      spree/brand:
+        brand: Brand
+
+  spree:
+    back_to_brands_list: Back To Brands List
+    blocked: Blocked
+    edit_brand: Edit Brand
+    new_brand: New Brand
+    only_alphanumeric_chars: should contain only letters and digits
+
+    brand: Brand
+    brand_brand: Brand Brand
+    admin:
+      commission: Commission
