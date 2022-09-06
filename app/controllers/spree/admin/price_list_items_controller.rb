@@ -20,7 +20,7 @@ module Spree
 
       def collection
         params[:q] = {} if params[:q].blank?
-        price_list_items = Spree::PriceListItem.where(spree_price_date_list_id: params[:price_list_date_id])
+        price_list_items = Spree::PriceListItem.where(spree_price_date_list_id: params[:price_date_list_id])
         @search = price_list_items.ransack(params[:q])
 
         @collection = @search.result.
