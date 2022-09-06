@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= link_to plural_resource_name(Spree::PriceDateList), spree.admin_brands_url %> /
+  <%= link_to plural_resource_name(Spree::PriceDateList), spree.admin_brand_price_date_lists_url %> /
   <%= Spree.t(:new_brand_price_date_list) %>
 <% end %>
 <%= form_for [:admin, :brand, :brand_id, @prciedatelist] do |f| %>
