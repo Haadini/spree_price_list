@@ -33,7 +33,7 @@
       <% @brands.each do |brands| %>
         <tr data-hook="brands_row">
           <td>
-            <%= link_to brands.brand, admin_price_date_list_path( brands.id)  %>
+            <%= link_to brands.brand, admin_brand_price_date_list_path( brands.id)  %>
           </td>
         </tr>
       <% end %>
