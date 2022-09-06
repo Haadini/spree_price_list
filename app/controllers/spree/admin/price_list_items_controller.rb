@@ -1,6 +1,6 @@
 module Spree
   module Admin
-    class PriceItemsController < ResourceController
+    class PriceListItemsController < ResourceController
       def update_positions
         params[:positions].each do |id, position|
           price_list_item = Spree::PriceListItem.find(id)
