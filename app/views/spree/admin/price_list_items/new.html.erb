@@ -1,0 +1,10 @@
+<% content_for :page_title do %>
+  <%= link_to plural_resource_name(Spree::PriceListItem), spree.admin_brand_price_date_list_price_list_items_url %> 
+  <%= Spree.t(:new_brand_price_date_list_price_list_item) %>
+<% end %>
+<%= form_for [:admin, :brand, :price_date_list, @search] do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/new_resource_links' %>
+  </fieldset>
+<% end %>
