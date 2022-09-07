@@ -17,6 +17,9 @@ module Spree
       def find_resource
         PriceDateList.find(params[:id])
       end
+      def build_resource
+        parent.price_date_lists.build(brand: parent)
+      end
 
       def collection
         params[:q] = {} if params[:q].blank?
