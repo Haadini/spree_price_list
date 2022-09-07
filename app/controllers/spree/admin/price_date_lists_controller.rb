@@ -15,7 +15,7 @@ module Spree
       private
 
       def find_resource
-        PriceDateList.find(params[:id])
+          @price_date_list = @object = parent.all_price_date_lists.find(params[:id])
       end
       def build_resource
         parent.price_date_list.build(brand: parent)
