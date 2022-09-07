@@ -1,6 +1,8 @@
 module Spree
   module Admin
     class PriceDateListsController < ResourceController
+      belongs_to 'spree/brand', find_by: :id
+      
       def update_positions
         params[:positions].each do |id, position|
           price_date_list = Spree::PriceDateList.find(id)
