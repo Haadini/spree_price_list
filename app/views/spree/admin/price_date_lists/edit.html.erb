@@ -1,7 +1,7 @@
 <% content_for :page_title do %>
   <%= link_to plural_resource_name(Spree::PriceDateList), spree.admin_brand_price_date_lists_url %> 
 <% end %>
-<%= form_for :prcie_date_list, url: admin_brand_price_date_list_url do |f| %>
+<%= form_for @prcie_date_list, url: admin_brand_price_date_list_url do |f| %>
   <fieldset>
     <%= render partial: 'form', locals: { f: f } %>
     <%= render partial: 'spree/admin/shared/edit_resource_links' %>
