@@ -2,7 +2,7 @@
   <%= link_to plural_resource_name(Spree::PriceDateList), spree.admin_brand_price_date_lists_url %> 
   <%= Spree.t(:new_brand_price_date_list) %>
 <% end %>
-<%= form_for [:admin, :brand, :price_date_list] do |f| %>
+<%= form_for [:admin, :brand, @price_date_list] do |f| %>
   <fieldset>
     <%= render partial: 'form', locals: { f: f } %>
     <%= render partial: 'spree/admin/shared/new_resource_links' %>
