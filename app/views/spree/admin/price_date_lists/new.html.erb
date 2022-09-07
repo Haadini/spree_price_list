@@ -3,7 +3,6 @@
   <%= Spree.t(:new_brand_price_date_list) %>
 <% end %>
 <% url = (action_name == "new" ? {:action=>"create", :controller=>"admin/price_date_list"})%>
-
 <%= form_for [@brand, @price_date_list], :url=>url do |f| %>
   <fieldset>
     <%= render partial: 'form', locals: { f: f } %>
