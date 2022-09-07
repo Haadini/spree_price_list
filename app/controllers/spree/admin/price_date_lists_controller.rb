@@ -18,7 +18,7 @@ module Spree
         PriceDateList.find(params[:id])
       end
       def build_resource
-        parent.price_date_lists.build(brand: parent)
+        parent.price_date_list.build(brand: parent)
       end
 
       def collection
