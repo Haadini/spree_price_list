@@ -1,0 +1,11 @@
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @prcie_date_lists } %>
+<div class="form-group">
+  <%= f.field_container :product do %>
+    <%= f.label :product %>
+    <%= f.text_area :product, class: 'form-control' %>
+  <% end %>
+  <%= f.field_container :price do %>
+    <%= f.label :price %>
+    <%= f.text_area :price, class: 'form-control' %>
+  <% end %>
+</div>
