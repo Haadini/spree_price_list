@@ -1,6 +1,7 @@
 module Spree
   module Admin
     class PriceListItemsController < ResourceController
+      belongs_to 'spree/brand', find_by: :id
       belongs_to 'spree/price_date_list', find_by: :id
 
       def update_positions
@@ -19,6 +20,7 @@ module Spree
       def find_resource
           @price_list_item = @object = parent.all_price_list_items.find(params[:id])
       end
+      
       def build_resource
         parent.price_list_items.build(price_date_list: parent)
       end
