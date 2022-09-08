@@ -1,6 +1,7 @@
 module Spree
   module Admin
     class PriceListItemsController < ResourceController
+      include PriceListItemsHelper
 
       belongs_to 'spree/brand', find_by: :id
       belongs_to 'spree/price_date_list', find_by: :id
@@ -17,21 +18,19 @@ module Spree
       end
 
       private
-      def find_resource_price_date_list
-          @price_date_list = @object = parent.all_price_date_lists.find(params[:id])
-      end
+      #def find_resource_price_date_list
+       #   @price_date_list = @object = parent.all_price_date_lists.find(params[:id])
+      #end
       
-      def build_resource_price_date_list
-        parent.price_date_lists.build(brand: brand)
-      end
+      #def build_resource_price_date_list
+      #  parent.price_date_lists.build(brand: brand)
+      #end
 
       def find_resource
-        find_resource_price_date_list
         @price_list_item = @object = parent.all_price_list_items.find(params[:id])
       end
       
       def build_resource
-        build_resource_price_date_list
         parent.price_list_items.build(price_date_list: parent)
       end
 
