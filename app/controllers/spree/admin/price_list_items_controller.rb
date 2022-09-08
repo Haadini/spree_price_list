@@ -2,6 +2,8 @@ module Spree
   module Admin
     class PriceListItemsController < ResourceController
       def update_positions
+        belongs_to 'spree/price_date_list', find_by: :id
+
         params[:positions].each do |id, position|
           price_list_item = Spree::PriceListItem.find(id)
           price_list_item.set_list_position(position)
@@ -15,12 +17,15 @@ module Spree
       private
 
       def find_resource
-        PriceListItem.find(params[:id])
+          @price_list_item = @object = parent.all_price_list_items.find(params[:id])
+      end
+      def build_resource
+        parent.price_list_items.build(price_date_list: parent)
       end
 
       def collection
         params[:q] = {} if params[:q].blank?
-        price_list_items = Spree::PriceListItem.where(spree_price_date_list_id: params[:price_date_list_id])
+        price_list_items = Spree::PriceListItem.where(price_date_list_id: params[:price_date_list_id])
         @search = price_list_items.ransack(params[:q])
 
         @collection = @search.result.
