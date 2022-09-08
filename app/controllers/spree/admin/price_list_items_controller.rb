@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class PriceListItemsController < ResourceController
-      include PriceListItemsHelper
+      include PriceDateListsController
       belongs_to 'spree/price_date_list', find_by: :id
 
       def update_positions
