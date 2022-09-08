@@ -26,10 +26,12 @@ module Spree
       end
 
       def find_resource
-          @price_list_item = @object = parent.all_price_list_items.find(params[:id])
+        find_resource_price_date_list
+        @price_list_item = @object = parent.all_price_list_items.find(params[:id])
       end
       
       def build_resource
+        build_resource_price_date_list
         parent.price_list_items.build(price_date_list: parent)
       end
 
