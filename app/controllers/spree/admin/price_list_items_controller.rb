@@ -22,7 +22,7 @@ module Spree
       end
       
       def build_resource_price_date_list
-        parent.price_date_lists.build(brand: parent)
+        parent.price_date_lists.build(brand: brand)
       end
 
       def find_resource
