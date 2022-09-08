@@ -1,9 +1,7 @@
 module Spree
   module Admin
     class PriceListItemsController < ResourceController
-      include PriceListItemsHelper
-      helper_method :find_resource
-      helper_method :build_resource
+
       belongs_to 'spree/brand', find_by: :id
       belongs_to 'spree/price_date_list', find_by: :id
 
