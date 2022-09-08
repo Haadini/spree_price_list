@@ -2,14 +2,8 @@ module Spree
   module Admin
     module PriceListItemsHelper
       private
-      def collection
-        params[:q] = {} if params[:q].blank?
+      def cc
         price_date_lists = Spree::PriceDateList.where(brand_id: params[:brand_id])
-        @search = price_date_lists.ransack(params[:q])
-
-        @collection = @search.result.
-            page(params[:page]).
-            per(params[:per_page])
       end
       
       def find_resource
