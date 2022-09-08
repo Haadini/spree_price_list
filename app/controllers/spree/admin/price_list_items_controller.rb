@@ -31,7 +31,7 @@ module Spree
       end
       
       def build_resource
-        parent.price_list_items.build(brand.price_date_list: parent)
+        parent.price_list_items.build(price_date_list: parent)
       end
 
       def collection
