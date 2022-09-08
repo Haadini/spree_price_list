@@ -33,6 +33,10 @@
           <td>
             <%= price_date_lists.end_date %> 
           </td>
+          <td class="actions actions-2 text-right">
+           <%= link_to "Edit", price_date_lists, no_text: true, class: 'edit' if can?(:edit, Spree::PriceDateList) %>
+          </td>
+
         </tr>
       <% end %>
     </tbody>
