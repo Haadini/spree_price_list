@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class PriceListItemsController < ResourceController
-      prepend PriceListItemsHelper
+      #prepend PriceListItemsHelper
 
       belongs_to 'spree/brand', find_by: :id
       belongs_to 'spree/price_date_list', find_by: :id
@@ -31,7 +31,7 @@ module Spree
       end
       
       def build_resource
-        parent.price_list_items.build(price_date_list: parent)
+        parent.price_list_items.build(brand.price_date_list: parent)
       end
 
       def collection
