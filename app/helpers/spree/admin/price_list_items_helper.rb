@@ -6,7 +6,7 @@ module Spree
       
 
       def build_resource
-        parent_price_date_list = Spree::SpreePriceDateList.brand_id
+        parent_price_date_list = Spree::PriceDateList.brand_id
 
         parent.price_date_lists.build(brand: parent_price_date_list)
       end
