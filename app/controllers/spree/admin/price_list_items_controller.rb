@@ -22,7 +22,7 @@ module Spree
         return @resource if @resource
 
         parent_model_name = parent_data[:brand] if parent_data
-        @resource = Spree::Admin::Resource.new admin_brand_price_date_lists_path, price_date_lists, brand, object_name
+        @resource = Spree::Admin::Resource.new admin_brand_price_date_lists_path, price_list_items, brand, object_name
       end
 
       def find_resource
