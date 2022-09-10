@@ -16,7 +16,7 @@ module Spree
 
       private
       def location_after_save
-        url_for([:edit, :admin, @order, @customer_return])
+        url_for([:edit, :admin, @brand, @price_date_list])
       end
 
 
