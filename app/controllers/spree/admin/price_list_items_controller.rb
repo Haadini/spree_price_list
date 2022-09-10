@@ -33,8 +33,8 @@ module Spree
       #def find_resource
       #  @price_list_item = @object = parent.all_price_list_items.find(params[:id])
       #end
-      def build_resource_1
-        parent.price_list_items.build(brand: parent)
+      def build_resource
+        parent.price_list_items.build
       end
      
       #def build_resource_2
