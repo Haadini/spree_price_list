@@ -38,7 +38,8 @@ module Spree
       end
      
       def build_resource_2
-        parent.price_date_lists.build(brand: parent)
+        parent_price_date_list = Spree::PriceDateList.where(brand_id: params[:brand_id])
+        parent.price_date_lists.build(brand: parent_price_date_list)
       end
       
       def collection
