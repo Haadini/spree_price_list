@@ -1,6 +1,6 @@
 module Spree
   module Admin
-    class PriceListItemsController < ResourceController
+    class PriceListItemsController < PriceDateListsController
       #prepend PriceListItemsHelper
 
       belongs_to 'spree/brand', find_by: :id
