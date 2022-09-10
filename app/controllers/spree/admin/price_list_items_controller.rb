@@ -23,9 +23,15 @@ module Spree
       private
       def load_brand
         @brand = Spree::Brand.find_by!(params[:id])
+        puts "####################################################################################################"
+        puts @brand
+        puts "####################################################################################################"
       end
       def load_price_date_list
         @price_date_list = @brand.price_date_lists.find_by!(params[:id])
+        puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+        puts @price_date_list
+        puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
       end
       #def resource
        # return @resource if @resource
