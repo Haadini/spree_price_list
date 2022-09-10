@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class PriceListItemsController < ResourceController
-      prepend PriceListItemsHelper
+      #prepend PriceListItemsHelper
 
       belongs_to 'spree/brand', find_by: :id
       belongs_to 'spree/price_date_list', find_by: :id
@@ -18,13 +18,12 @@ module Spree
       end
 
       private
-      #def find_resource_price_date_list
-       #   @price_date_list = @object = parent.all_price_date_lists.find(params[:id])
-      #end
-      
-      #def build_resource_price_date_list
-      #  parent.price_date_lists.build(brand: brand)
-      #end
+      def resource
+        return @resource if @resource
+
+        parent_model_name = parent_data[:brand] if parent_data
+        @resource = Spree::Admin::Resource.new admin_brand_price_date_lists_path, price_date_lists, brand, object_name
+      end
 
       def find_resource
         @price_list_item = @object = parent.all_price_list_items.find(params[:id])
