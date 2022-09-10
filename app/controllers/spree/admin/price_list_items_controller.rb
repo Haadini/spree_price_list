@@ -33,12 +33,12 @@ module Spree
         puts @price_date_list
         puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
       end
-      #def resource
-       # return @resource if @resource
+      def resource
+        return @resource if @resource
 
-        #parent_model_name = parent_data[:brand] if parent_data
-        #@resource = Spree::Admin::Resource.new admin_brand_price_date_lists_path, price_date_lists, brand, object_name
-      #end
+        parent_model_name = parent_data[:brand] if parent_data
+        @resource = Spree::Admin::Resource.new admin_brand_price_date_lists_path, price_date_lists, brand, object_name
+      end
 
       def find_resource
         @price_list_item = @object = parent.all_price_list_items.find(params[:id])
