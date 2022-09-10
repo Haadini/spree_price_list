@@ -5,9 +5,9 @@ module Spree
       belongs_to 'spree/brand', find_by: :id
       belongs_to 'spree/price_date_list', find_by: :id
       
-      before_action :load_brand
-      before_action :load_price_date_list
-      prepend PriceListItemsHelper
+      #before_action :load_brand
+      #before_action :load_price_date_list
+      #prepend PriceListItemsHelper
 
 
       def update_positions
@@ -22,19 +22,22 @@ module Spree
       end
 
       private
-      def load_brand
-        @brand = Spree::Brand.find_by!(params[:id])
-      end
-      def load_price_date_list
-        @price_date_list = @brand.price_date_lists.find_by!(params[:id])
-      end
+      #def load_brand
+       # @brand = Spree::Brand.find_by!(params[:id])
+      #end
+      #def load_price_date_list
+       # @price_date_list = @brand.price_date_lists.find_by!(params[:id])
+      #end
 
 
-      def find_resource
-        @price_list_item = @object = parent.all_price_list_items.find(params[:id])
+      #def find_resource
+      #  @price_list_item = @object = parent.all_price_list_items.find(params[:id])
+      #end
+      def build_resource_2
+        parent.price_list_items.build(brand: parent)
       end
       
-      def build_resource
+      def build_resource_1
         parent.price_list_items.build(price_date_list: parent)
       end
 
