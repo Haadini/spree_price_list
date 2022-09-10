@@ -15,6 +15,10 @@ module Spree
       end
 
       private
+      def location_after_save
+        url_for([:edit, :admin, @order, @customer_return])
+      end
+
 
       def find_resource
           @price_date_list = @object = parent.all_price_date_lists.find(params[:id])
