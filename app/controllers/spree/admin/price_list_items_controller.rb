@@ -22,7 +22,7 @@ module Spree
 
       private
       def load_brand
-        @brand = current_store.brands.find_by!(params[:id])
+        @brand = Spree::Brand.find_by!(params[:id])
       end
       def load_price_date_list
         @price_date_list = @brand.price_date_lists.find_by!(params[:id])
