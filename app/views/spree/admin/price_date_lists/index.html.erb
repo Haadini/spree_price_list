@@ -34,7 +34,7 @@
             <%= price_date_lists.end_date %> 
           </td>
           <td class="actions actions-2 text-right">
-           <%= link_to_edit_url(edit_admin_brand_price_date_list_path(@brand, price_date_lists), no_text: true), class: 'edit' if can?(:edit, Spree::PriceDateList)%>
+           <%= link_to_edit_url(edit_admin_brand_price_date_list_path(@brand, price_date_lists), title: "admin_edit_#{dom_id(price_date_lists)}", no_text: true) if can?(:edit, price_date_list)%>
           </td>
 
         </tr>
