@@ -34,13 +34,13 @@ module Spree
       #  @price_list_item = @object = parent.all_price_list_items.find(params[:id])
       #end
       def build_resource_1
-        parent.price_list_items.build(price_date_list: parent)
+        parent.price_list_items.build(brand: parent,price_date_list: parent)
       end
      
-      def build_resource_2
-        parent_price_date_list = Spree::PriceDateList.where(brand_id: params[:brand_id])
-        parent.price_date_lists.build(brand: parent_price_date_list)
-      end
+      #def build_resource_2
+       # parent_price_date_list = Spree::PriceDateList.where(brand_id: params[:brand_id])
+        #parent.price_date_lists.build(brand: parent_price_date_list)
+      #end
       
       def collection
         params[:q] = {} if params[:q].blank?
